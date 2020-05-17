@@ -19,5 +19,12 @@ func main() {
 		logrus.Fatal(err)
 	}
 
+	level, err := logrus.ParseLevel(config.LogLevel)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+
+	logrus.SetLevel(level)
+
 	logrus.Fatal(server.Run(config))
 }

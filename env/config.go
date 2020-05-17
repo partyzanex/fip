@@ -6,9 +6,10 @@ import (
 )
 
 type Config struct {
-	Address string `envconfig:"address" default:"localhost:9090"`
-	Source  string `envconfig:"source"`
-	Cache   string `envconfig:"cache" default:"/tmp/fip"`
+	LogLevel string `envconfig:"log_level" default:"debug"`
+	Address  string `envconfig:"address" default:"localhost:9090"`
+	Source   string `envconfig:"source"`
+	Cache    string `envconfig:"cache" default:"/tmp/fip"`
 }
 
 func Read(prefix string) (*Config, error) {
