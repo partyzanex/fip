@@ -19,8 +19,8 @@ func Run(config *env.Config) error {
 
 	r := router.New()
 	r.GET("/s/{path:*}", WithLogger(h.GetSource))
-	r.GET("/r/{width}/{height}/{path}", WithLogger(h.Resize))
-	r.GET("/t/{width}/{height}/{path}", WithLogger(h.Thumb))
+	r.GET("/r/{width}/{height}/{path:*}", WithLogger(h.Resize))
+	r.GET("/t/{width}/{height}/{path:*}", WithLogger(h.Thumb))
 	r.NotFound = WithLogger(func(ctx *fasthttp.RequestCtx) {
 		ctx.Error("502 Bad Gateway", http.StatusBadGateway)
 	})

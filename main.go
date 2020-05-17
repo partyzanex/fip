@@ -11,7 +11,7 @@ var (
 	prefix  = pflag.String("prefix", "fip", "environment prefix")
 	version = pflag.Bool("version", false, "print version")
 
-	v = "v0.0.2"
+	v = "v0.0.3"
 )
 
 func main() {
