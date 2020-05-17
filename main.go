@@ -8,11 +8,19 @@ import (
 )
 
 var (
-	prefix = pflag.String("prefix", "fip", "environment prefix")
+	prefix  = pflag.String("prefix", "fip", "environment prefix")
+	version = pflag.Bool("version", false, "print version")
+
+	v = "v0.0.1"
 )
 
 func main() {
 	pflag.Parse()
+
+	if *version {
+		println(v)
+		return
+	}
 
 	config, err := env.Read(*prefix)
 	if err != nil {
