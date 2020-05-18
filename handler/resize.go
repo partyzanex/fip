@@ -34,14 +34,6 @@ func (h *Handler) resize(ctx *fasthttp.RequestCtx, r Resize) {
 		return
 	}
 
-	if width == 0 {
-		width = height
-	}
-
-	if height == 0 {
-		height = width
-	}
-
 	path := ctx.UserValue("path").(string)
 	path = filepath.Join(h.SourceDir, h.sanitizePath(path))
 
